@@ -5,6 +5,7 @@ import SideBar from "../../components/Sidebar/Sidebar"
 import Widget from "../../components/widget/Widget"
 import Featured from "../../components/featured/Featured"
 import Chart from "../../components/chart/Chart"
+import Tables from "../../components/table/Tables"
 
 function Home(){
 
@@ -26,7 +27,12 @@ function Home(){
 
               <div className="charts">
                       <Featured/>
-                      <Chart/>
+                      <Chart aspect={2/1} title="last 6 months (Revenue)"/>
+              </div>
+
+              <div className="listContainer">
+                <div className="listTitle">Latest Transaction</div>
+                <Tables/>
               </div>
 
             </div>

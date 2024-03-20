@@ -8,6 +8,9 @@ import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PortraitIcon from '@mui/icons-material/Portrait';
 import LogoutIcon from '@mui/icons-material/Logout';
+import {Link} from "react-router-dom"
+
+
 
 function SideBar(){
     return(
@@ -15,7 +18,10 @@ function SideBar(){
  <div className="sidebar">
        
     <div className="top">
+        <Link to="/" style={{textDecoration:"none"}}>
          <span className="logo">MrDubeyji</span>
+         </Link>
+
     </div>
 
 <hr/>
@@ -23,10 +29,16 @@ function SideBar(){
         <ul>
             <p className="title">Main</p>
             <li><DashboardIcon className="icon"/><span>Dashboard</span></li>
-
+            <Link to="/users" style={{textDecoration:"none"}}>
             <p className="title">Lists</p>
             <li><GroupIcon className="icon"/><span>Users</span></li>
+            </Link>
+
+            <Link to="/products" style={{textDecoration:"none"}}>
             <li><GroupIcon className="icon"/><span>Products</span></li>
+            </Link>
+
+            
             <li><LocalShippingIcon className="icon"/><span>Orders</span></li>
             <li><LocalShippingIcon className="icon"/><span>Delivery</span></li>
          

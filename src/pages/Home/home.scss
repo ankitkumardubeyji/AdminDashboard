@@ -15,4 +15,19 @@
     .charts{
         padding: 5px 20px; // separating the two components inside the charts by giving the flex(width).
     }
+
+    .listContainer{
+        box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47); // reference : box-shadow generator
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+        padding: 20px;
+        margin: 20px;
+
+        .listTitle{
+            font-weight: 500;
+            color: grey;
+            margin-bottom: 15px;
+        }
+    }
+
+
 }

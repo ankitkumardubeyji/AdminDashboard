@@ -4,29 +4,34 @@ import Home from "./pages/Home/Home"
 import Single from "./pages/Single/Single"
 import New from "./pages/New/New"
 import List from "./pages/List/List"
+import { productInputs, userInputs } from "./formSource"
+import "./style/dark.scss"
 
 
 function App(){
 
+  
+
+
     return(
         <>
-        <div className="App">
+        <div >
 
        
             <BrowserRouter>
               <Routes>
                 <Route path="/" >
-                    <Route index element={<Home/>}/> 
-                    <Route path="login" element={<Login/>}/>
+                    <Route index element={<Home />}/> 
+                    <Route path="login" element={<Login/>} />
                     <Route path="users">     {/* doing nesting of the routes inside the users/:userId, users/new */}
                         <Route index element={<List/>}/> {/* at the users path will be existing the list */}
                         <Route path=":userId" element={<Single/>}/>
-                        <Route path="new" element={<New/>}/> 
+                        <Route path="new" element={<New input={userInputs}/>} title="Add new user"/> 
                     </Route>
 
                     <Route path="products">
                         <Route index element={<List/>}/>
-                        <Route path=":indexId" element ={<New/>}/>
+                        <Route path=":indexId" element ={<New input= {productInputs} title="Add New Product" />}/>
                       </Route>
                  </Route>    
               </Routes>
