@@ -9,10 +9,19 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import PortraitIcon from '@mui/icons-material/Portrait';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {Link} from "react-router-dom"
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 
 
 function SideBar(){
+    const {dispatch} = useContext(AuthContext)
+    function handleLogout(e){
+        e.preventDefault()
+        dispatch({type:"LOGOUT"})
+
+    }
+    
     return(
         <>
  <div className="sidebar">
@@ -64,6 +73,8 @@ function SideBar(){
      
 
     </div>
+
+    <button onClick={handleLogout}>Logout</button>
 </div> 
         </>
     )
