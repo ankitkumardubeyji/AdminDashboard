@@ -8,14 +8,29 @@ import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PortraitIcon from '@mui/icons-material/Portrait';
 import LogoutIcon from '@mui/icons-material/Logout';
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-
+import { DarkModeContext } from "../../context/darkModeContext";
 
 
 function SideBar(){
-    const {dispatch} = useContext(AuthContext)
+    //const {dispatch} = useContext(AuthContext)
+
+    const navigate = useNavigate()
+    function handleDark(e){
+        e.preventDefault()
+        console.log("here")
+        localStorage.setItem("background","appDark");
+        window.location.reload();
+    }
+
+    function handleWhite(e){
+        e.preventDefault()
+        localStorage.setItem("background","app");
+        window.location.reload();
+    }
+    const { dispatch } = useContext(DarkModeContext);
     function handleLogout(e){
         e.preventDefault()
         dispatch({type:"LOGOUT"})
@@ -67,12 +82,15 @@ function SideBar(){
     </div>
 
     <div className="bottom">
-        <div className="colorOption"></div>
-        <div className="colorOption"></div>
-       
-     
-
-    </div>
+        <div
+          className="colorOption"
+          onClick={handleWhite}
+        ></div>
+        <div
+          className="colorOption"
+          onClick={handleDark}
+        ></div>
+      </div>
 
     <button onClick={handleLogout}>Logout</button>
 </div> 
